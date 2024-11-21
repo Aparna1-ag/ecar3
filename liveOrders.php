@@ -155,6 +155,7 @@ $conn->close();
         <div class="card mb-4">
           <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="pb-3">Live Purchases</h5>
+
             <div>
             <a href="javascript:;" class="btn btn-lg btn-primary m-auto align-middle fs-5  py-3" style="width:400px;" data-bs-toggle="modal" data-bs-target="#placePurchase">
                 Create New Order
@@ -167,16 +168,17 @@ $conn->close();
 
 
 
-            <table class="table shadow-lg table-bordered table-sm" id="dataTable" name="dataTable" style="border: 1px solid white">
+            <table class="table shadow-lg table-bordered table-sm" id="live-orders-table" name="dataTable" style="border: 1px solid white">
+  
                   <thead style="height:4.5rem;">
                   <tr class="bg-gradient  text-light my-2 text-center" style= "background: #616eaa">
 
-                    <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Purchase Title</th>
-                    <th  class="align-middle " width="6%" style="font-weight:500;">ODOO Order Number</th>
-                    <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Order Status</th>
-                    <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Date of purchase</th>
-                    <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Tracking Code </th>
-                    <th scope="col" class="align-middle " width="45%" style="font-weight:500;">Actions</th>
+                    <th scope="col" class="align-middle text-center" width="6%" style="font-weight:500;">Purchase Title</th>
+                    <th scope="col" class="align-middle text-center" width="6%" style="font-weight:500;">ODOO Order Number</th>
+                    <th scope="col" class="align-middle text-center" width="6%" style="font-weight:500;">Order Status</th>
+                    <th scope="col" class="align-middle text-center " width="6%" style="font-weight:500;">Date of purchase</th>
+                    <th scope="col" class="align-middle text-center" width="6%" style="font-weight:500;">Tracking Code </th>
+                    <th scope="col" class="align-middle text-center" width="45%" style="font-weight:500;">Actions</th>
                   </tr>
                 </thead>
                 <?php
@@ -224,7 +226,21 @@ $conn->close();
                       </td>
 
                       <td class="align-middle">
-                        <span class=" font-weight-bold ms-2"><?php echo $row['purchase_status'] ?></span>
+                        <?php 
+                        $status_bg_color = "";
+                        if ($row['purchase_status'] === "Received From Supplier" ) {
+                          $status_bg_color = "darkgoldenrod"; 
+                        } else  if ($row['purchase_status'] === "InProcess" ) {
+                          $status_bg_color = "purple";
+                        } else  if ($row['purchase_status'] === "Sent To Supplier" ) {
+                          $status_bg_color = "darkcyan";
+                         } else  if ($row['purchase_status'] === "Completed" ) {
+                            $status_bg_color = "darkolivegreen";
+
+                         }
+                        
+                         ?>
+                        <span style="font-weight: 500; background: <?php  echo  $status_bg_color; ?>" class="badge text-capitalize rounded-pill "> <?php echo $row['purchase_status'] ?></span> 
                       </td>
                       <td class="align-middle">
                         <span class=" font-weight-bold ms-2"><?php echo $row['purchase_timestamp'] ?></span>
@@ -234,25 +250,25 @@ $conn->close();
                       </td>
 
                       <td class="align-middle d-flex align-content-center justify-content-center pt-4 "  >
-                        <a href="viewpurchase.php?purchase_id=<?php echo $row['purchase_id']; ?>" class="ms-3  btn btn-primary btn-sm">
+                        <a href="viewpurchase.php?purchase_id=<?php echo $row['purchase_id']; ?>" class="ms-3  btn bg-gradient btn-primary btn-sm">
                           View Order
                         </a>
-                        <a href="./universalfileupload.php?orderId=<?php echo $row['purchase_id'] ?>" class="btn btn-info btn-sm ms-3">
+                        <a href="./universalfileupload.php?orderId=<?php echo $row['purchase_id'] ?>" class="btn bg-gradient btn-info btn-sm ms-3">
                           Upload File
                         </a>
 
                         <?php
                        // if ($row['supplier_status'] === 'Complete') :
                         ?>
-                          <a href="Updatepurchase.php?purchase_id=<?php echo $row['purchase_id']; ?>" class="ms-3  btn btn-warning btn-sm">
+                          <a href="Updatepurchase.php?purchase_id=<?php echo $row['purchase_id']; ?>" class="ms-3  btn bg-gradient btn-warning btn-sm">
                             Update Order Status </a>
                         <?php
                        // endif;
                         ?>
-                        <a href="supplierDashboard.php?id=<?php echo $row['purchase_id']; ?>" class="ms-3 text-white btn btn-success btn-sm">
-                          View Supplier Dashboard </a>
+                     <a href="viewSupplierOrderDetails.php?purchase_id=<?php echo $row['purchase_id']; ?>" class="ms-3 text-white btn bg-gradient btn-success  btn-sm">
+                     View Supplier Dashboard </a>
 
-                          <a href="archived_orders.php" class="ms-3 text-white btn btn-danger btn-sm ">
+                          <a href="archived_orders.php" class="ms-3 text-white btn bg-gradient btn-danger btn-sm ">
                           Archive </a>
 
 
@@ -267,8 +283,22 @@ $conn->close();
 </div>
  </div>
  </div>
+<script>
+
+$(document).ready(function () {
+    var table = $('#live-orders-table').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true
+    });
+
+    $('#customSearchInput').on('keyup', function () {
+        table.search(this.value).draw();
+    });
+});
 
 
+</script>
 
 
 

@@ -117,11 +117,10 @@ if(isset($_GET['save_changes']) && $_GET['save_changes'] == 'true') {
   </div>
   <br>
                 
-                    <ul class="nav nav-tabs">
-                    </ul>
+                   
                     <div class="card" id="manage_users" style="overflow: auto;">
-                        <div class="">
-                        <table class="table shadow-lg table-bordered table-sm" id="dataTable" name="dataTable" style="border: 1px solid white">
+                        <div class="table-responsive p-3">
+                        <table class="table shadow-lg table-bordered table-sm" id="customer-complaint-table" name="dataTable" style="border: 1px solid white">
                   <thead style="height:4.5rem;">
                   <tr class="bg-gradient text-light my-2 text-center" style="background: #af952a">
                                         <th scope="col" class="align-middle " width="6%" style="font-weight:500;">VIN </th>
@@ -225,8 +224,11 @@ if(isset($_GET['save_changes']) && $_GET['save_changes'] == 'true') {
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button class="btn btn-primary" type="submit" name="save_changes">Update Complaint Status</button>
                 </form>
+
+       
             </div>
         </div>
+    
     </div>
 <script>
     function populateinfoModal(button) {
@@ -248,6 +250,30 @@ if(isset($_GET['save_changes']) && $_GET['save_changes'] == 'true') {
     }
 </script>
 </div>
+
+<script>
+
+$(document).ready(function () {
+    var table = $('#customer-complaint-table').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true
+    });
+
+    $('#customSearchInput').on('keyup', function () {
+        table.search(this.value).draw();
+    });
+});
+
+
+</script>
+
+
+<div class="row justify-content-center text-center pt-3">
+      <div class="col-1 border p-1  custom-red">High Severity</div>&nbsp;&nbsp;
+      <div class="col-1 border p-1 custom-orange">Medium Severity</div>&nbsp;&nbsp;
+      <div class="col-1 border p-1 custom-purple">Low Severity</div>&nbsp;&nbsp;
+    </div>
 
 
 <?php include 'INCLUDES/footer.php'; ?>

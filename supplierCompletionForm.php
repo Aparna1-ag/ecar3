@@ -87,10 +87,10 @@ $user_role = $_SESSION['user_role']
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><?php echo "File Uploads"  ?></h5>
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content px-5 pt-5 bg-gradient">
+        <div class="modal-header bg-primary">
+                    <h5 class="modal-title text-light" id="exampleModalLabel"><?php echo "File Uploads"  ?></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -195,9 +195,9 @@ $user_role = $_SESSION['user_role']
                     <input type="file" name="signature_data" id="signature_data" accept="image/*"><br>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary mt-3" type="submit">Submit</button>
+                    <button class="btn btn-success mt-3" type="submit">Submit</button>
                     </form>
-                    <a class="btn btn-primary mt-3" href="supplierDashboard.php">Back</a>
+                    <a class="btn btn-secondary mt-3" href="liveOrders.php">Back</a>
                 </div>
 
 

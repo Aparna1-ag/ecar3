@@ -31,17 +31,19 @@ if (isset($_POST['add_user'])) {
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-11 m-auto">
+        <a class="btn btn-secondary btn-gradient my-5 " href="controlaccess.php"> &#8592; Back</a>
+
             <div class="card mb-4" id="add_supplier">
                 <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Manage Vendors </h5>
-                    <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+                    <button type="button" class="btn btn-gradient btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                         Add Vendors
                     </button>
                 </div>
 
-                <div class="card-body px-0 pt-0 pb-2">
+                <div class=" px-0 pt-0 pb-2">
                     <div class="table-responsive p-3">
-                    <table class="table shadow-lg table-bordered table-sm" id="dataTable" name="dataTable" style="border: 1px solid white">
+                    <table class="table shadow-lg table-bordered table-sm" id="manage-Vendors" name="dataTable" style="border: 1px solid white">
                   <thead style="height:4.5rem;">
                   <tr class="bg-gradient bg-secondary text-light text-center" style="background: ">
                                     <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Name</th>
@@ -82,7 +84,7 @@ if (isset($_POST['add_user'])) {
                                             ?></td>
                                         <td class="align-middle px-3">
                                             <a href="#"
-                                                class="btn btn-link"
+                                                class="btn btn-gradient btn-link"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#editModal"
                                                 onclick="populateEditModal(this)"
@@ -94,7 +96,7 @@ if (isset($_POST['add_user'])) {
                                                 <i class="fas fa-user-edit" style="color: #7a4edf;"></i>
                                             </a>
 
-                                            <a href="#" class="btn btn-link" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-vendor-id="<?php echo $row['vendor_id']; ?>">
+                                            <a href="#" class="btn btn-gradient btn-link" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-vendor-id="<?php echo $row['vendor_id']; ?>">
     <i class="fas fa-trash"></i>
 </a>
 
@@ -154,7 +156,7 @@ if (isset($_POST['add_user'])) {
                             </select>
                         </div>
                     </div>
-                    <button class="btn  btn-primary" type="submit" name="add_vendor">Add Vendor</button>
+                    <button class="btn btn-gradient  btn-primary" type="submit" name="add_vendor">Add Vendor</button>
                 </form>
             </div>
         </div>
@@ -192,8 +194,8 @@ if (isset($_POST['add_user'])) {
                         <label for="changePassword">Change Password (optional)</label>
                         <input type="password" class="form-control" id="changePassword" name="changePassword">
                     </div>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" type="submit" name="save_changes">Save Changes</button>
+                    <button type="button" class="btn btn-gradient btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-gradient btn-primary" type="submit" name="save_changes">Save Changes</button>
                 </form>
             </div>
         </div>
@@ -232,8 +234,8 @@ if (isset($_POST['add_user'])) {
             </div>
             <div class="modal-footer">
                 <!-- Add the vendor ID to the delete link -->
-                <a href="#" id="deleteVendorBtn" class="btn btn-danger">Delete</a>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a href="#" id="deleteVendorBtn" class="btn btn-gradient btn-danger">Delete</a>
+                <button type="button" class="btn btn-gradient btn-secondary" data-bs-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
@@ -251,6 +253,23 @@ $('#deleteModal').on('show.bs.modal', function (event) {
     vendorId = button.data('vendor-id'); // Extract vendor ID from data-* attribute
     deleteVendorBtn.href = 'manageVendors.php?delete_vendor=true&vendor_id=' + vendorId; // Set the delete link
 });
+</script>
+
+
+<script>
+$(document).ready(function () {
+    var table = $('#manage-Vendors').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true
+    });
+
+    $('#customSearchInput').on('keyup', function () {
+        table.search(this.value).draw();
+    });
+});
+
+
 </script>
 
 

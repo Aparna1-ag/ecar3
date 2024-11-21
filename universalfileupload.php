@@ -38,8 +38,8 @@ if (isset($_GET['file_upload_success']) && $_GET['file_upload_success'] == 'true
 <div class="modal fade  " id="fileupload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-l" role="document">
         <div class="modal-content">
-            <div class="modal-header ">
-                <h5 class="modal-title" id="exampleModalLabel">File Upload</h5>
+            <div class="modal-header bg-gradient bg-primary">
+                <h5 class="modal-title text-white" id="exampleModalLabel">File Upload</h5>
                 <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -71,8 +71,8 @@ if (isset($_GET['file_upload_success']) && $_GET['file_upload_success'] == 'true
 
                                 <div class="d-flex justify-content-end ">
                                     <!-- Submit button -->
-                                    <button class="btn btn-primary" onclick="window.history.go(-2)">Go Back</button>
-                                    <button type="submit" name="universal_file_upload" class=" btn btn-primary ms-3">Upload</button>
+                                    <button class="btn btn-secondary" onclick="window.history.go(-1)">Go Back</button>
+                                    <button type="submit" name="universal_file_upload" class=" btn btn-success ms-3">Upload</button>
                                 </div>
                             </form>
                             <script>

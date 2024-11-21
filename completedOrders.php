@@ -47,7 +47,7 @@ if(isset($_GET['process']) && $_GET['process'] == 'true') {
                 </div>
                 <div class=" px-0 pt-0 pb-2">
                     <div class="table-responsive p-0 p-3">
-                    <table class="table shadow-lg table-bordered table-sm" id="dataTable" name="dataTable" style="border: 1px solid white">
+                    <table class="table shadow-lg table-bordered table-sm" id="completed-orders-table" name="dataTable" style="border: 1px solid white">
                   <thead style="height:4.5rem;">
                   <tr class="bg-gradient text-light my-2 text-center" style="background: #81609d">
                                     <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Order No</th>
@@ -139,7 +139,22 @@ function showConfirmationModal(productionId, unit) {
     $('#soldConfirmationModal').modal('show');
 }
 </script>
+<script>
 
+$(document).ready(function () {
+    var table = $('#completed-orders-table').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true
+    });
+
+    $('#customSearchInput').on('keyup', function () {
+        table.search(this.value).draw();
+    });
+});
+
+
+</script>
 <?php
 include './conn.php';
 

@@ -61,40 +61,73 @@ if (isset($_GET['upload_success']) && $_GET['upload_success'] == 'true') {
                                     </tr>
                                 </thead>
                                 <tbody style="background: #dddddd70;">
-                                <?php
-$sql = "SELECT * FROM production GROUP BY unit, vin_number, production_id";
-$info = $conn->query($sql);
+                            
+                                    <?php
+                                 
+                                    
+                                    $sql = "SELECT * 
+                                    FROM production 
+                                    WHERE ((process1 = $user_id AND process1_status = 'Active') 
+                                           OR (process2 = $user_id AND process2_status = 'Active') 
+                                           OR (process3 = $user_id AND process3_status = 'Active')
+                                           OR (process4 = $user_id AND process4_status = 'Active'))
+                                         
+                                          ";
+                            
+                                    $info = $obj_admin->manage_all_info($sql);
 
-if ($info->num_rows > 0) {
-    while ($row = $info->fetch_assoc()) {
-        // Assuming $user_id is defined earlier in the code
-        if (
-            ($row['process1'] == $user_id && $row['process1_status'] == 'Active') ||
-            ($row['process2'] == $user_id && $row['process2_status'] == 'Active') ||
-            ($row['process3'] == $user_id && $row['process3_status'] == 'Active') ||
-            ($row['process4'] == $user_id && $row['process4_status'] == 'Active')
-        ) {
-            ?>
-            <tr style="height: 5rem;">
-                <td class="align-middle">
-                    <p class="text-sm font-weight-bold mb-0 ms-4"><?php echo htmlspecialchars($row['unit']); ?></p>
-                </td>
-                <td class="align-middle">
-                    <p class="text-sm font-weight-bold mb-0 ms-4"><?php echo htmlspecialchars($row['vin_number']); ?></p>
-                </td>
-              
+                                    $serial  = 1;
 
-                <td> </td>
-                <td class="align-middle d-flex align-content-center justify-content-center pt-4">
-                   
-                </td>
-               
-            </tr>
-            <?php
-        }
-    }
+                                    $num_row = $info->rowCount();
 
-                                    } ?>
+                                    // Check if there are any rows returned
+                                    if ($info->rowCount() == 0) {
+                                        echo '<tr><td colspan="5" class="text-center">No Active Processes Found</td></tr>';
+                                    } else {
+                                        // Loop through the results
+                                        while ($row = $info->fetch(PDO::FETCH_ASSOC)) {
+                                             
+                                                // Output fetched row for debugging
+                                                  echo '<tr style="height: 5rem;">';
+
+                                            // Iterate over process columns and check if each is active
+                                            for ($i = 1; $i <= 4; $i++) {
+                                                $process = 'process' . $i;
+                                                $status = $process . '_status';
+
+                                                // Check if the key exists and process is active
+                                                if (isset($row[$process]) && isset($row[$status]) && $row[$status] === 'Active') {
+                                                    if ($row[$process] == $user_id && $row[$status] === "Active") {
+                                                    echo '<td class="align-middle px-3">' . $row['unit'] . '</td>';
+                                                    echo '<td class="align-middle px-3">' . $row['vin_number'] . '</td>';
+                                                    echo '<td class="align-middle px-3">';
+                                                    
+                                                        $currentProcess =  "Process" . $i;
+                                                        if ($currentProcess === 'Process1') {
+                                                            echo "Mechanical Body Installation";
+                                                        } elseif ($currentProcess === 'Process2') {
+                                                            echo "Electrical Installation";
+                                                        } elseif ($currentProcess === 'Process3') {
+                                                            echo "Internal Fit Out Installation";
+                                                        } elseif ($currentProcess === 'Process4') {
+                                                            echo "Optional Installation";
+                                                        }
+                                                       
+                                                        $processSQL = "process" . $i;
+                                                    
+                                                    echo '</td>';
+
+                                                    // Construct the URL for Quality Assurance link
+                                                    $qualityAssuranceURL = 'vendorWorkCompletionForm.php?production_id=' . $row['production_id'] . '&unitNo=' . $row['unit'] . '&vin_number=' . $row['vin_number'] . '&CurrentProcess=' . $processSQL;
+                                                    echo '<td class="d-flex justify-content-center pt-4 px-3"><a href="' . $qualityAssuranceURL . '" class="btn bg-gradient btn-warning">Quality Assurance</a></td>';
+                                                    echo '</tr>'; // Start a new row for the next process
+                                                    }
+                                                }
+                                            }
+                                        } 
+                                      }
+                                    
+                                    ?>
                                 </tbody>
                             </table>
 

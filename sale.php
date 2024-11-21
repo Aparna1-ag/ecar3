@@ -143,7 +143,7 @@ if(isset($_GET['save_changes']) && $_GET['save_changes'] == 'true') {
                     <!-- manage users table  -->
                     <div class=" mt-2" id="manage_users" style="overflow: auto;">
                         <div class="">
-                        <table class="table shadow-lg table-bordered table-sm" id="dataTable" name="dataTable" style="border: 1px solid white">
+                        <table class="table shadow-lg table-bordered table-sm" id="sales-table" name="myTable" style="border: 1px solid white">
                   <thead style="height:4.5rem;">
                   <tr class="bg-gradient text-light my-2 text-center" style="background: #566033">
                                     <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Order No</th>
@@ -347,6 +347,22 @@ if(isset($_GET['save_changes']) && $_GET['save_changes'] == 'true') {
         document.getElementById('vinnumber').value = vin_number;
         document.getElementById('date').value = date;
     }
+</script>
+<script>
+
+$(document).ready(function () {
+    var table = $('#sales-table').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true
+    });
+
+    $('#customSearchInput').on('keyup', function () {
+        table.search(this.value).draw();
+    });
+});
+
+
 </script>
 </div>
 

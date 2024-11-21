@@ -36,8 +36,8 @@ $user_role = $_SESSION['user_role'];
 
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header ">
-                <h5 class="modal-title" id="exampleModalLabel">Update Purchase</h5>
+            <div class="modal-header bg-gradient bg-primary ">
+                <h5 class="modal-title text-light" id="exampleModalLabel">Update Purchase</h5>
             </div>
 
             <div class="modal-body">
@@ -124,8 +124,8 @@ $user_role = $_SESSION['user_role'];
 
 
                                     <div class="d-flex gap-2">
-                                        <a class=" form-control btn btn-primary" href="Dashboard.php">Back</a>
-                                        <button type="submit" name="QC" class="form-control btn btn-primary">Update purchase</button>
+                                        <a class=" form-control btn btn-secondary" href="liveOrders.php">Back</a>
+                                        <button type="submit" name="QC" class="form-control btn btn-success">Update purchase</button>
                                     </div>
 
                             </form>

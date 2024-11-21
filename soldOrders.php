@@ -33,7 +33,7 @@ include './conn.php';
                 </div>
                 <div class=" px-0 pt-0 pb-2">
                     <div class="table-responsive p-0 p-3">
-                    <table class="table shadow-lg table-bordered table-sm" id="dataTable" name="dataTable" style="border: 1px solid white">
+                    <table class="table shadow-lg table-bordered table-sm" id="sold-orders-table" name="dataTable" style="border: 1px solid white">
                   <thead style="height:4.5rem;">
                   <tr class="bg-gradient text-light my-2 text-center" style="background: #aa758e">
                                     <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Order No</th>
@@ -112,6 +112,22 @@ WHERE p.sold = 'yes'";
                 </div>
             </div>
         </div>
+        <script>
+
+$(document).ready(function () {
+    var table = $('#sold-orders-table').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true
+    });
+
+    $('#customSearchInput').on('keyup', function () {
+        table.search(this.value).draw();
+    });
+});
+
+
+</script>
     </div>
 
 

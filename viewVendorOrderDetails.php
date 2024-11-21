@@ -93,7 +93,7 @@ ob_end_flush();
                                                         } elseif ($currentProcess === 'Process4') {
                                                             echo "Optional Installation";
                                                         }
-                                                        // Construct process status SQL
+                                                       
                                                         $processSQL = "process" . $i;
                                                     
                                                     echo '</td>';

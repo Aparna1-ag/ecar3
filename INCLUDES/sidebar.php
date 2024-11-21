@@ -426,7 +426,7 @@ if ($current_page !== $control_access_page ): ?>
 
 <?php } 
 
-if ($user_role === 'vendor') { 
+if ($user_role === 'vendors') { 
 
   $vendors_dashboard = 'VendorsDashboard.php';
   $vendors_past_records = 'vendorrecord.php';
@@ -471,7 +471,7 @@ if ($user_role === 'vendor') {
 <div class="col-12 m-auto">
 <ul id="myTab" role="tablist" class="nav nav-tabs flex-column flex-sm-row text-center "  style="height:4rem;" >
 
-<?php if ($user_role !== 'vendor') { ?>
+<?php if ($user_role !== 'vendors') { ?>
 <li class="nav-item flex-sm-fill navitem">
   <img src="https://centralcoastorthodontics.com.au/wp-content/uploads/2020/06/photo_2020-06-30_12-10-48.png" class="list-numbers" />
           <a id="Table-tab" data-toggle="tab" href="./liveOrders.php" role="tab" aria-controls="Table" aria-selected="true" class="navlink text-uppercase font-weight-bold active procurement">Procurement</a>

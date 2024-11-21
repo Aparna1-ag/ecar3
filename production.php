@@ -51,6 +51,12 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
 ?>
 
 
+
+
+
+
+
+
 <div class=" py-4">
 <div class=" mb-5 mt-2 container d-flex justify-content-center py-2 container  bg-gradient shadow-lg text-uppercase" style="background: #5d855b"><h2 class="m-auto text-light" style="font-weight: 400" >Production Tab</h2> </div>
 
@@ -59,9 +65,12 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
             <div class="card mb-4">
                 <div class="card-header pb-0">
                     <h5>Projects Ready to Start</h5>
+                   
+
                 </div>
+
 <div class="table-responsive p-3">
-                <table class="table shadow-lg table-bordered table-sm" id="dataTable" name="dataTable" style="border: 1px solid white">
+                <table class="table shadow-lg table-bordered table-sm" id="production-table-first" name="dataTable" style="border: 1px solid white">
                   <thead style="height:4.5rem;">
                   <tr class="bg-gradient text-light my-2 text-center" style="background: #5d855b">
                                     <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Odoo Order Id</th>
@@ -107,7 +116,7 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
 
 
 
-                                        <td class="align-middle d-flex align-content-center justify-content-center">
+                                        <td class="px-3 pt-4">
 
                                             <?php
                                             if ($row['process1_status'] === 'Active') {
@@ -117,7 +126,7 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
                                             } elseif ($row['process1_status'] === 'Completed') {
                                                 $buttonColor = 'badge bg-success';
                                             } elseif ($row['process1_status'] === 'Waiting') {
-                                                $buttonColor = 'ms-2 badge bg-danger';
+                                                $buttonColor = ' badge bg-danger';
                                             }
                                             ?>
                                             <a href="startProduction.php?production_id=<?php echo $row['purchase_id']; ?>&unit_number=<?php echo $row['unit']; ?>&process=process1" class="<?php echo $buttonColor; ?> ">Mechanical<br>Installation</a>
@@ -126,27 +135,27 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
 
                                             <?php
                                             if ($row['process2_status'] === 'Active') {
-                                                $buttonColor = 'ms-2 badge bg-warning';
+                                                $buttonColor = ' badge bg-warning';
                                             } elseif (is_null($row['process2_status'])) {
-                                                $buttonColor = 'ms-2 badge bg-danger';
+                                                $buttonColor = ' badge bg-danger';
                                             } elseif ($row['process2_status'] === 'Completed') {
-                                                $buttonColor = 'ms-2 badge bg-success';
+                                                $buttonColor = ' badge bg-success';
                                             } elseif ($row['process2_status'] === 'Waiting') {
-                                                $buttonColor = 'ms-2 badge bg-danger';
+                                                $buttonColor = ' badge bg-danger';
                                             }
                                             ?>
-                                            <a href="startProduction.php?production_id=<?php echo $row['purchase_id']; ?>&unit_number=<?php echo $row['unit']; ?>&process=process2" class="ms-2 <?php echo $buttonColor; ?>">Electrical<br>Installation</a>
+                                            <a href="startProduction.php?production_id=<?php echo $row['purchase_id']; ?>&unit_number=<?php echo $row['unit']; ?>&process=process2" class=" <?php echo $buttonColor; ?>">Electrical<br>Installation</a>
 
 
                                             <?php
                                             if ($row['process3_status'] === 'Active') {
-                                                $buttonColor = 'ms-2 badge bg-warning';
+                                                $buttonColor = ' badge bg-warning';
                                             } elseif (is_null($row['process3_status'])) {
-                                                $buttonColor = 'ms-2 badge bg-danger';
+                                                $buttonColor = ' badge bg-danger';
                                             } elseif ($row['process3_status'] === 'Completed') {
-                                                $buttonColor = 'ms-2 badge bg-success';
+                                                $buttonColor = ' badge bg-success';
                                             } elseif ($row['process3_status'] === 'Waiting') {
-                                                $buttonColor = 'ms-2 badge bg-danger';
+                                                $buttonColor = ' badge bg-danger';
                                             }
                                             ?>
                                             <a href="startProduction.php?production_id=<?php echo $row['purchase_id']; ?>&unit_number=<?php echo $row['unit']; ?>&process=process3" class="<?php echo $buttonColor; ?>">Internal Fit Out<br>Installation</a>
@@ -155,13 +164,13 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
 
                                             <?php
                                             if ($row['process4_status'] === 'Active') {
-                                                $buttonColor = 'ms-2 badge bg-warning';
+                                                $buttonColor = ' badge bg-warning';
                                             } elseif (is_null($row['process4_status'])) {
-                                                $buttonColor = 'ms-2 badge bg-danger';
+                                                $buttonColor = ' badge bg-danger';
                                             } elseif ($row['process4_status'] === 'Completed') {
-                                                $buttonColor = 'ms-2 badge bg-success';
+                                                $buttonColor = ' badge bg-success';
                                             } elseif ($row['process4_status'] === 'Waiting') {
-                                                $buttonColor = 'ms-2 badge bg-danger';
+                                                $buttonColor = ' badge bg-danger';
                                             }
                                             ?>
                                             <a href="startProduction.php?production_id=<?php echo $row['purchase_id']; ?>&unit_number=<?php echo $row['unit']; ?>&process=process4" class="<?php echo $buttonColor; ?>">Optional<br>Installation</a>
@@ -184,18 +193,18 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
                     </div>
 
 
-
     <div class="row">
         <div class="col-11 m-auto">
             <div class="card mb-4">
                 <div class="card-header pb-0">
+                    
                     <h5>Live Production</h5>
                 </div>
 
 
                 <div class="">
               <div class="table-responsive p-3">
-                <table class="table shadow-lg table-bordered  table-sm" id="dataTable" name="dataTable" >
+                <table class="table shadow-lg table-bordered  table-sm" id="production-table" name="dataTable" >
                   <thead style="height:4.5rem;">
                     <tr class="bg-gradient text-light my-2 text-center" style="background: #5d855b">
                                     <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Odoo Order Id</th>
@@ -249,7 +258,7 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
                                             <p class=" font-weight-bold mb-0  ms-4"><?php echo $row['vin_number'] ?></p>
                                         </td>
 
-                                        <td class="align-middle">
+                                        <td class="px-3 pt-4">
                                             <div class="<?php
                                                         if ($row['process1_status'] === 'Active') {
                                                             echo 'badge bg-warning';
@@ -258,16 +267,16 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
                                                         } elseif ($row['process1_status'] === 'Completed') {
                                                             echo 'badge bg-success';
                                                         } elseif ($row['process1_status'] === 'Waiting') {
-                                                            echo 'ms-2 badge bg-danger';
+                                                            echo 'badge bg-danger';
                                                         }
                                                         ?>">
-                                                <span class=" font-weight-bold ms-2 mr-2">
+                                                <span class=" font-weight-bold  ">
                                                     <?php echo !empty($row['process1']) ? $row['process1_vendor'] : "Not Assigned"; ?>
                                                 </span>
                                             </div>
                                         </td>
 
-                                        <td class="align-middle">
+                                        <td class="px-3 pt-4">
                                             <div class="<?php
                                                         if ($row['process2_status'] === 'Active') {
                                                             echo 'badge bg-warning';
@@ -276,16 +285,16 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
                                                         } elseif ($row['process2_status'] === 'Completed') {
                                                             echo 'badge bg-success';
                                                         } elseif ($row['process2_status'] === 'Waiting') {
-                                                            echo 'ms-2 badge bg-danger';
+                                                            echo 'badge bg-danger';
                                                         }
                                                         ?>">
-                                                <span class="text-xs font-weight-bold ms-2 mr-2">
+                                                <span class="text-xs font-weight-bold ">
                                                     <?php echo !empty($row['process2']) ? $row['process2_vendor'] : "Not Assigned"; ?>
                                                 </span>
                                             </div>
                                         </td>
 
-                                        <td class="align-middle">
+                                        <td class="px-3 pt-4">
                                             <div class="<?php
                                                         if ($row['process3_status'] === 'Active') {
                                                             echo 'badge bg-warning';
@@ -294,16 +303,16 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
                                                         } elseif ($row['process3_status'] === 'Completed') {
                                                             echo 'badge bg-success';
                                                         } elseif ($row['process3_status'] === 'Waiting') {
-                                                            echo 'ms-2 badge bg-danger';
+                                                            echo ' badge bg-danger';
                                                         }
                                                         ?>">
-                                                <span class="text-xs font-weight-bold ms-2 mr-2">
+                                                <span class="text-xs font-weight-bold  ">
                                                     <?php echo !empty($row['process3']) ? $row['process3_vendor'] : "Not Assigned"; ?>
                                                 </span>
                                             </div>
                                         </td>
 
-                                        <td class="align-middle">
+                                        <td class="px-3 pt-4">
                                             <div class="<?php
                                                         if ($row['process4_status'] === 'Active') {
                                                             echo 'badge bg-warning';
@@ -312,10 +321,10 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
                                                         } elseif ($row['process4_status'] === 'Completed') {
                                                             echo 'badge bg-success';
                                                         } elseif ($row['process4_status'] === 'Waiting') {
-                                                            echo 'ms-2 badge bg-danger';
+                                                            echo ' badge bg-danger';
                                                         }
                                                         ?>">
-                                                <span class="text-xs font-weight-bold ms-2 mr-2">
+                                                <span class=" font-weight-bold ">
                                                     <?php echo !empty($row['process4']) ? $row['process4_vendor'] : "Not Assigned"; ?>
                                                 </span>
                                             </div>
@@ -324,7 +333,7 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
 
 
 
-                                        <td class=" font-weight-bold ms-2 pt-4" style="width:25%">
+                                        <td class=" font-weight-bold  pt-4" style="width:25%">
 
 
                                          <div class="d-flex justify-content-center">
@@ -357,8 +366,43 @@ if (isset($_GET['qc_upload']) && $_GET['qc_upload'] == 'true') {
             </div>
         </div>
     </div>
+    <script>
+
+$(document).ready(function () {
+    var table = $('#production-table').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true
+    });
+
+    $('#customSearchInput').on('keyup', function () {
+        table.search(this.value).draw();
+    });
+});
+
+
+</script>
+
+
+<script>
+
+$(document).ready(function () {
+    var table = $('#production-table-first').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true
+    });
+
+    $('#customSearchInput').on('keyup', function () {
+        table.search(this.value).draw();
+    });
+});
+
+
+</script>
 
 </div>
+
 
 
 

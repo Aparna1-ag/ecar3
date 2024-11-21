@@ -66,9 +66,9 @@ $unit = $_GET['unit'];
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered " role="document">
-        <div class="modal-content px-5">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Vehicle Approval Checklist - ORDER NO: <?php echo htmlspecialchars($unit); ?> </h5>
+        <div class="modal-content px-5 pt-5 bg-gradient">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title text-light" id="exampleModalLongTitle">Vehicle Approval Checklist - ORDER NO: <?php echo htmlspecialchars($unit); ?> </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -157,7 +157,7 @@ $unit = $_GET['unit'];
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="window.history.back()">Back</button>
-                    <button type="submit" name="final" class="btn btn-primary">Finalise Unit</button>
+                    <button type="submit" name="final" class="btn btn-success">Finalise Unit</button>
                 </div>
             </form>
 

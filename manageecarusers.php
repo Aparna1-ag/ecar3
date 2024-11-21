@@ -31,7 +31,9 @@ if (isset($_POST['add_user'])) {
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-11 m-auto">
+        <a class="btn btn-secondary my-5 " href="controlaccess.php"> &#8592; Back</a>
             <div class="card mb-4" id="add_supplier">
+            
                 <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Manage Users </h5>
                     <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
@@ -41,7 +43,7 @@ if (isset($_POST['add_user'])) {
 
                 <div class="card-body px-0 pt-0 ">
                     <div class="table-responsive p-3">
-                    <table class="table shadow-lg table-bordered table-sm" id="dataTable" name="dataTable" style="border: 1px solid white">
+                    <table class="table shadow-lg table-bordered table-sm" id="manage-ecar-users" name="dataTable" style="border: 1px solid white">
                   <thead style="height:4.5rem;">
                   <tr class="bg-gradient bg-secondary text-light text-center" style="background: ">
                                     <th scope="col" class="align-middle " width="6%" style="font-weight:500;">Name</th>
@@ -274,6 +276,24 @@ if (isset($_POST['add_user'])) {
         var user_id = button.data('warehouse-id');
         $('#confirmDeleteButton').attr('href', '?delete_user=delete_user&user_id=' + user_id);
     });
+</script>
+
+
+<script>
+
+$(document).ready(function () {
+    var table = $('#manage-ecar-users').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true
+    });
+
+    $('#customSearchInput').on('keyup', function () {
+        table.search(this.value).draw();
+    });
+});
+
+
 </script>
 
 

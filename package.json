@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bootstrap-sweetalert": "^1.0.1",
+    "sweetalert": "^2.1.2"
+  }
+}

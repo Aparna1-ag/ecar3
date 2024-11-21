@@ -1,0 +1,4 @@
+
+AddType image/vnd.dwg .dwg
+AddType application/octet-stream .ipt
+AddType application/octet-stream .step

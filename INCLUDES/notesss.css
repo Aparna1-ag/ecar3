@@ -1,0 +1,106 @@
+.bg-primary-custom {
+       
+}
+
+a {
+  text-decoration: none;
+  /* color: black !important; */
+  font-weight: 200 !important;
+
+}
+
+.production {
+/* background: #6e84cb9b; border: 2px solid #062dda; color: #062dda; */
+color: #616eaa;
+
+}
+
+.production:focus {
+/* background: #062dda; color: white; */
+border-bottom: 5px solid blue;
+
+}
+
+.completed {
+background: #5d855b; border: 2px solid #14881c; color: #14881c;
+
+}
+.completed:focus {
+background: #14881c; color: white;
+
+}
+
+
+.complaints {
+background: #566033; border: 2px solid #3b4907; color: #3b4907;
+
+}
+
+.complaints:focus {
+background: #3b4907; color: white;
+
+}
+
+.sales {
+background: #aa758e; border: 2px solid #ff0077; color: #ff0077;
+
+}
+
+.sales:focus {
+background: #ff0077; color: white;
+
+}
+
+.control {
+background: #81609d; border: 2px solid #8c00ff; color: #8c00ff;
+
+}
+
+.control:focus {
+background: #8c00ff; color: white;
+
+}
+
+.sold {
+background: #f8c49f; border: 2px solid #af764d; color: #ff6a00;
+
+}
+
+.sold:focus {
+background: #ff6a00; color: white;
+
+}
+
+.navigation {
+height: 2rem;
+
+
+border: 1px solid;
+border-radius: 5px;
+}
+
+
+.navyblue {
+  background: #1d144f; color: white;
+  
+  }
+
+
+  .customer-complaint-new  {
+    color: #af952a;
+  }
+
+
+  .archived  {
+    color: #722424;
+  }
+
+
+  .vendors {
+    color: #28928b;
+  }
+
+  .vendorRecords {
+    color: #28928b;
+  }
+

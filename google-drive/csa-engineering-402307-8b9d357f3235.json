@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "csa-engineering-402307",
+  "private_key_id": "8b9d357f3235dbb1341ad5c87595ab2cc1bc7564",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCubHLUmTgHsCQT\nwSPSGyuOkWM7Hf1BBlx8Sr5sO08rRLA6lfvESMqBKwPuBKdQjcaQxLfLWaDB1RKC\nArw0/pYJuqfpqoHL+MEhtVvCE6Nam4WuX2fAyErEH4gbbHm1zqqT/X3XfrlPBy60\n74faDomtAKlFTrpjJBJtkv9+otuUoEHjlvv47JcLV3xGIoStkCjarQahQo6q2whD\nzit6gj1whbVR8vZRgRfDt2r3WLdEHXKcDmQNrZiAsV8dkPWHb6S2miA62ZX1rms7\nJK1GxRxaddi4feoC5SyM57AnOcRVjAREBge8ejIy/RPZCd2og2+Ps9rcShPWlwuB\nfZOs6kFVAgMBAAECggEAB0HYmPxTT9YBi2m6LOOOqCzVtTIM4Nfy15cN+ReSWuly\nORXOCT9UqIFRmgoB9QC0jNEF9GCsXdjPn2WdmBKXXffVjkLW94xstCWy805UlWu8\nsj1r08bPWY/M3papxE4cpTr1es2Cf06gsl6u/iDa3SvNg8HJUM34WFDtpgvcNJMs\nV9HFEGam3gKqAlTORtDBJ38fLqGA7DT5O9ZpBNaOJvQ68BpG6XtciIU1or78R9gw\nstHxhcIkrMuAR6N8gJcqk2SiIkL7uRRY0HY5vgm2L61LyfP+ghSNqFEby5Jcv57a\n+b+vdNnyao6QVNKOl7RZitI2/rvwVLfjT4AFvP1nZwKBgQD1La73xk+g2vjTrtMu\nmJ+YrpZYbypoxZWf5h5DoZXmmExnVyiZrKmnXqVTpcMCpft9sVFUzQ+4QoRxoMA6\nH2QFLawZtOEDOlagb0vSGTvq84YXHwyUNiaIUgte96LnPaUJpDLxkKostzr2Wvt5\nj+py/CrKDSmZqbYGCtwKLgPyTwKBgQC2H0sUwIm0LHUN/E/03F88Bbs9x7ND57Vb\nF61DeXGIrrRzF7u8HMrNuCXrW8zMmBR0HVd+E4YQCQw6p0CkK3Ya281yBeO7hK0U\n8thf0S+NsXmWSEYnBMtF+fgJJ1bwb1oEdXmHhL4f+nL5qpuQ7X2K9GD87IugK4D7\nitoLw7ddGwKBgQCswFiVKrz2iPNkK72PCmkBappyizllgzqO5NSUMKlvRgYnlkj8\nJqWPUWfKDXTfS9Zs1OCKkMYvvWaWrX5kNbQC1hB6OHGHFbbt6h2RVshaHuZvKihx\n0cnKqYxriK7Woh/EMFbY0GanhR9db/PazmWSSU1Y+ndCV0ry7Pnnjk6njwKBgGN9\nsOyDSjbNWpzrS1q+0J/fmaxkXgAooqBCzPpha655kkaVno9jQz8i7EQpADZ8lh/g\nr51GWSSFbNLV77A/teNyVEeIBCK6ljstdxrREiNb4spAbWJ/cfSmW+PUQ+BRVGG/\nM0bfM2YQ0aKmmxmPQ9gXLKy/JH+5hFrmPbvTjWYlAoGARFeLw3g93xy6AyTtmFI5\n403i+larp8H3PeMyHrsZx6gR02ILXrG8CQx3ogVBcrBdKNRdZALYir9Z6iITB+wO\nyApvOXwrOFCQvW49B92rIv9iD46g+k7Svwd3Wmwo6erLTyBAeM+sjNQS7tx4Gsw1\n5ZvSC1EimqqfMg+IshGgBgA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "ecar-623@csa-engineering-402307.iam.gserviceaccount.com",
+  "client_id": "114106813063097400069",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ecar-623%40csa-engineering-402307.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
